@@ -81,7 +81,6 @@ class LRUCache:
 
         elif len(self.storage) == self.limit:
             tail_key = list(self.storage.tail.value.keys())
-            print(tail_key)
             self.storage.remove_from_tail()
             del self.dict_cache[tail_key[0]]
             
@@ -100,8 +99,9 @@ cache_stuff.set('itemD', 'flyingman!!!')
 cache_stuff.set('itemB', 'meflea2')
 cache_stuff.set('itemC', 'tincup!!!')
 print(cache_stuff.dict_cache['itemC'].value)
-print(cache_stuff.storage.head.next.value)
-print(cache_stuff.storage.tail.value)
+print('head', cache_stuff.storage.head.value)
+print('middle', cache_stuff.storage.head.next.value)
+print('tail', cache_stuff.storage.tail.value)
 
 
 
