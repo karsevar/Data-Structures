@@ -33,7 +33,19 @@ class LRUCache:
     key-value pair doesn't exist in the cache.
     """
     def get(self, key):
-        pass
+        # check if the key is within the dict_cache 
+        # if within the dict_cache 
+            # move the referenced node to the front of the double linked 
+            # list 
+            # modify the dict_cache[key] to have the appropriate node reference 
+            # return dict_cache[key].value[key]
+
+        if key not in self.dict_cache:
+            return None
+        
+        referenced_node = self.storage.move_to_front(self.dict_cache[key])
+        self.dict_cache[key] = referenced_node
+        return self.dict_cache[key].value[key]
 
     """
     Adds the given key-value pair to the cache. The newly-
@@ -86,8 +98,9 @@ cache_stuff.set('itemB', 'meflea')
 cache_stuff.set('itemC', 'mefleatothemax')
 cache_stuff.set('itemD', 'flyingman!!!')
 cache_stuff.set('itemB', 'meflea2')
+cache_stuff.set('itemC', 'tincup!!!')
 print(cache_stuff.dict_cache['itemC'].value)
-print(cache_stuff.storage.head.value)
+print(cache_stuff.storage.head.next.value)
 print(cache_stuff.storage.tail.value)
 
 
