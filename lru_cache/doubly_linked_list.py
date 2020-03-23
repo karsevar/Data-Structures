@@ -34,6 +34,9 @@ class ListNode:
         if self.next:
             self.next.prev = self.prev
 
+    # def __str__(self):
+    #     return f'{self.value}'
+
 
 """Our doubly-linked list class. It holds references to
 the list's head and tail nodes."""
@@ -105,7 +108,7 @@ class DoublyLinkedList:
         elif self.head == node:
             self.head = self.head.next 
             node.delete() 
-        elif self.tail = node:
+        elif self.tail == node:
             self.tail = self.tail.prev 
             node.delete()
         else:
@@ -114,3 +117,6 @@ class DoublyLinkedList:
 
     def get_max(self):
         pass
+
+    def __str__(self):
+        return f'{self.head}'
