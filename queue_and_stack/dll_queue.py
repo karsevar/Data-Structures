@@ -3,7 +3,7 @@ sys.path.append('../doubly_linked_list')
 from doubly_linked_list import DoublyLinkedList
 
 new_list = DoublyLinkedList()
-print(len(new_list))
+# print(len(new_list))
 
 class Queue:
     def __init__(self):
@@ -24,9 +24,9 @@ class Queue:
         self.size = len(self.storage)
         return self.size
 
-new_queue = Queue()
-new_queue.enqueue(2)
-new_queue.enqueue(4)
-print(new_queue.dequeue())
-print(new_queue.len())
+# new_queue = Queue()
+# new_queue.enqueue(2)
+# new_queue.enqueue(4)
+# print(new_queue.dequeue())
+# print(new_queue.len())
 
