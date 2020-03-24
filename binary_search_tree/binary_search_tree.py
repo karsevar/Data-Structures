@@ -111,7 +111,32 @@ class BinarySearchTree:
     # Call the function `cb` on the value of each node
     # You may use a recursive or iterative approach
     def for_each(self, cb):
-        pass
+        # divide and conquer method 
+
+        # the next node can be separated between self.right and self.left 
+        # will need to create a recursive case that will call both next nodes 
+        # in the tree and terminate once the passed node is None.
+
+        # plan:
+        # create a function that will be used as the recursive helper 
+        # for the passed in cb function.
+            # base case: if passed in node is None return nothing 
+
+            # else 
+                # pass current node's value into the cb function
+                # next call the helper function on the right and left 
+                # nodes of the current node 
+
+        def recursive_function_helper(current_node):
+            if current_node == None:
+                return 
+
+            else:
+                cb(current_node.value) 
+                recursive_function_helper(current_node.right)
+                recursive_function_helper(current_node.left)
+
+        recursive_function_helper(self)
 
     # DAY 2 Project -----------------------
 
@@ -141,6 +166,9 @@ class BinarySearchTree:
     def post_order_dft(self, node):
         pass
 
+arr = []
+cb = lambda x: arr.append(x)
+
 new_tree = BinarySearchTree(3)
 new_tree.insert(2)
 new_tree.insert(5)
@@ -148,3 +176,5 @@ new_tree.insert(1)
 print(new_tree.right.value)
 print(new_tree.contains(0))
 print(new_tree.get_max())
+new_tree.for_each(cb)
+print(arr)
