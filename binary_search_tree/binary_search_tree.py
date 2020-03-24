@@ -85,7 +85,28 @@ class BinarySearchTree:
 
     # Return the maximum value found in the tree
     def get_max(self):
-        pass
+        # plan:
+
+        # create a current node variable initialized to the current root 
+
+        # create a max variable that will collect all the node values 
+        # to the right of the root nodes.
+
+        # create a while loop that will terminate if current_node 
+        # equals None 
+
+        # modify max variable to current_node's value 
+        # modify current node to current_node.right 
+
+        current_node = self
+        max_value = 0
+
+        while current_node:
+            max_value = current_node.value 
+            current_node = current_node.right
+
+        return max_value
+
 
     # Call the function `cb` on the value of each node
     # You may use a recursive or iterative approach
@@ -126,3 +147,4 @@ new_tree.insert(5)
 new_tree.insert(1)
 print(new_tree.right.value)
 print(new_tree.contains(0))
+print(new_tree.get_max())
