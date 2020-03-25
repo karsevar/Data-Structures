@@ -173,7 +173,29 @@ class BinarySearchTree:
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self, node):
-        pass
+        # create a queue call discovered 
+        # initialize the queue with the root node of the tree 
+
+        # create a while loop that will terminate once the discovered
+        # queue is empty (discovered.len() == 0) 
+            # remove the oldest node in the queue discovered.dequeue() and
+            # print the value 
+
+            # if node.left != None: enqueue node.left 
+            # if node.right != None: enqueue node.right
+        
+        discovered = Queue() 
+        discovered.enqueue(node)
+
+        while discovered.len() > 0:
+            explored = discovered.dequeue() 
+            print(explored.value)
+
+            if explored.left != None:
+                discovered.enqueue(explored.left) 
+            if explored.right != None:
+                discovered.enqueue(explored.right)
+            
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
@@ -198,9 +220,21 @@ new_tree = BinarySearchTree(3)
 new_tree.insert(2)
 new_tree.insert(5)
 new_tree.insert(1)
-print(new_tree.right.value)
-print(new_tree.contains(0))
-print(new_tree.get_max())
-new_tree.for_each(cb)
-print(arr)
-new_tree.in_order_print(new_tree)
+# print(new_tree.right.value)
+# print(new_tree.contains(0))
+# print(new_tree.get_max())
+# new_tree.for_each(cb)
+# print(arr)
+# new_tree.in_order_print(new_tree)
+# new_tree.bft_print(new_tree)
+
+bst = BinarySearchTree(1)
+bst.insert(8)
+bst.insert(5)
+bst.insert(7)
+bst.insert(6)
+bst.insert(3)
+bst.insert(4)
+bst.insert(2)
+
+bst.bft_print(bst)
