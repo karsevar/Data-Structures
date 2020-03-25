@@ -34,6 +34,9 @@ class ListNode:
         if self.next:
             self.next.prev = self.prev
 
+    # def __str__(self):
+    #     return f'{self.value}'
+
 
 """Our doubly-linked list class. It holds references to
 the list's head and tail nodes."""
@@ -49,25 +52,71 @@ class DoublyLinkedList:
         return self.length
 
     def add_to_head(self, value):
-        pass
+        self.length += 1 
+        if not self.head and not self.tail:
+            self.head = self.tail = ListNode(value) 
+        else:
+            self.head.insert_before(value)
+            self.head = self.head.prev 
+        # This will be used for the cache_dict in the 
+        # LRUCach class when adding new nodes.   
+        return self.head
 
     def remove_from_head(self):
-        pass
+        value = self.head.value
+        self.delete(self.head)
+        return value
 
     def add_to_tail(self, value):
-        pass
+        self.length += 1
+        if not self.head and not self.tail:
+            self.head = self.tail = ListNode(value)
+        else:
+            self.tail.insert_after(value)
+            self.tail = self.tail.next
 
     def remove_from_tail(self):
-        pass
+        value = self.tail.value 
+        self.delete(self.tail) 
+        return value
 
     def move_to_front(self, node):
-        pass
+        self.delete(node)
+        self.add_to_head(node.value)
+
+        # will most likely need to return the newly 
+        # created node since the old node in the dict_cache 
+        # won't be current
+        return self.head
 
     def move_to_end(self, node):
-        pass
+        self.delete(node) 
+        self.add_to_tail(node.value)
+
+        # will most likely need to return the newly 
+        # created node since the old node in the dict_cache 
+        # won't be current
+        return self.tail
 
     def delete(self, node):
-        pass
+        if not self.head and not self.tail:
+            print('ERROR: Attempted to delete node not in list')
+            return 
+        elif self.head == self.tail:
+            self.head = None 
+            self.tail = None 
+        elif self.head == node:
+            self.head = self.head.next 
+            node.delete() 
+        elif self.tail == node:
+            self.tail = self.tail.prev 
+            node.delete()
+        else:
+            node.delete()
+        self.length -= 1
 
     def get_max(self):
         pass
+
+    def __str__(self):
+        return f'{self.head}'
