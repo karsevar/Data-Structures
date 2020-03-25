@@ -223,7 +223,19 @@ class BinarySearchTree:
 
     # Print Post-order recursive DFT
     def post_order_dft(self, node):
-        pass
+        # similar to in-order depth first search except that 
+        # you need to order the recursive steps and print statement 
+        # as:
+        # <post_order_dft(node.left)>
+        # <post_order_dft(node.right)>
+        # print(node.value) 
+
+        if node == None:
+            return 
+        else:
+            self.post_order_dft(node.left)
+            self.post_order_dft(node.right)
+            print(node.value)
 
 arr = []
 cb = lambda x: arr.append(x)
