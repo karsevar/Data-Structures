@@ -200,7 +200,30 @@ class BinarySearchTree:
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
-        pass
+        # initialize discovered to an empty stack 
+        # initialize stack with the root node in the binary tree 
+
+        # create a loop that will continue to iterate through the tree if discovered 
+        # is not empty 
+
+            # pop node from the stack and print the value 
+
+            # if node.right is not null push it in the stack 
+
+            # if node.left is not null push it in the stack 
+
+        discovered = Stack()
+        discovered.push(node) 
+
+        while discovered.len() > 0:
+            explored = discovered.pop()
+            print(explored.value)
+
+            if explored.right != None:
+                discovered.push(explored.right)
+            if explored.left != None:
+                discovered.push(explored.left)
+
 
     # STRETCH Goals -------------------------
     # Note: Research may be required
@@ -261,4 +284,4 @@ bst.insert(3)
 bst.insert(4)
 bst.insert(2)
 
-bst.bft_print(bst)
+bst.dft_print(bst)
