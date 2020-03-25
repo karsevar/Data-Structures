@@ -143,7 +143,32 @@ class BinarySearchTree:
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
-        pass
+        ## first attempt 
+        # I will not use a stack to recursively 
+        # print the nodes using in-order depth first traversal 
+        # as I feel that the implementation is most likely the same 
+        # as my for_each method helper function implementation 
+
+        # plan:
+        # stop traversal if the passed in node is None 
+
+        # else:
+        # recursively call the self.in_order_print() with first the left node
+        # and then the right node. 
+        # remember that within the middle you have to print(node.value) 
+        # the following is the correct permuation for in-order depth first traversal 
+        # <self.in_order_print(node.left)>
+        # <print(node.value) >
+        # <self.in_order_print(node.right)>
+
+        if node == None:
+            return 
+        else:
+            self.in_order_print(node.left) 
+            print(node.value)
+            self.in_order_print(node.right)
+
+
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
@@ -178,3 +203,4 @@ print(new_tree.contains(0))
 print(new_tree.get_max())
 new_tree.for_each(cb)
 print(arr)
+new_tree.in_order_print(new_tree)
